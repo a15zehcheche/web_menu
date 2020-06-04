@@ -1,0 +1,13 @@
+
+/* food card*/
+.card-body p{
+    line-height: 1.5em;
+    height: 2.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+
+/*--------------------------*/

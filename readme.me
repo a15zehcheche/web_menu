@@ -1,0 +1,15 @@
+
+mysql:
+    CREATE USER 'menu'@'%' IDENTIFIED BY 'DiM2020Chen';
+    GRANT ALL PRIVILEGES ON * . * TO 'menu'@'%';
+
+docker-composer:
+    docker-composer up -d
+    docker-composer down
+    docker-composer build // for change any config file, remove all virtual machine data!!!!
+    docker ps -s
+    docker exec -it composerID bash
+
+
+laravel:
+    storage forbidden: ln -s ../storage/app/public storage
