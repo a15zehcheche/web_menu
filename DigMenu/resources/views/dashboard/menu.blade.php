@@ -1,8 +1,14 @@
 
     <div class="text-center"><h1>La Carta<h1></div>
-    <div class="text-right">
-        <a class="btn btn-secondary mb-5" href="/food">Add</a>
-        <a class="btn btn-primary mb-5" href="/menu/create">Create</a>
+    <div class="text-right mb-2">
+        <a class="btn btn-secondary" href="/food">Add</a>
+        <a class="btn btn-primary" href="/menu/create">Create</a>
+        <a class="btn btn-warning" href="/tag">Tag</a>
+    </div>
+    <div class="d-flex mb-3 h-100 flex-wrap" >
+        @foreach ($tags as $tag)
+            <div class="tag ml-2 mb-2 btn text-nowrap" style="background-color: {{$tag->color}}">{{$tag->name}}</div>
+        @endforeach
     </div>
     @if (count($menus)>0)
         <div class="row">

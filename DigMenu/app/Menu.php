@@ -19,4 +19,8 @@ class Menu extends Model
     {
         return $this->HasMany('App\MenuImage');
     }
+    public function tag()
+    {
+        return $this->belongsTo('App\Tag');
+    }
 }

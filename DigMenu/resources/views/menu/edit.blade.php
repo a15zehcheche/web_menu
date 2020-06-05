@@ -19,6 +19,10 @@
             {{Form::textarea('description',$menu->description,['id'=>'article-ckeditor','class'=>'form-control','placeholder'=>'Text'])}}
         </div>
         <div class="form-group">
+            {!! Form::Label('tag', 'Tag:') !!}
+            {!! Form::select('tag_id', $tags, $menu->tag_id, ['class' => 'form-control']) !!}
+        </div>
+        <div class="form-group w-100 overflow-hidden">
             {{Form::file('menu_image')}}
         </div>
         {{Form::hidden('_method','PUT')}}

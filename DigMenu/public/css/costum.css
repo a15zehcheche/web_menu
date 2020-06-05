@@ -11,3 +11,9 @@
 
 
 /*--------------------------*/
+
+.tag{
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 20px;
+}

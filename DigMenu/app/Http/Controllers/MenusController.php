@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Menu;
 use App\Food;
 use App\MenuImage;
+use App\Tag;
+use App\User;
 use App\Http\Controllers\MenuImageController;
 
 class MenusController extends Controller
@@ -40,7 +42,11 @@ class MenusController extends Controller
      */
     public function create()
     {
-        return view('menu.create');
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        $tags = Tag::where('user_id', '=', $user_id)->pluck( 'name','id');
+
+        return view('menu.create', compact('tags', $tags));
     }
 
     public function add($food_id)
@@ -92,6 +98,7 @@ class MenusController extends Controller
             $menu->description = "";
         }
         $menu->price = $request->input('price');
+        $menu->tag_id = $request->input('tag_id');
         $menu->imgLink = $fileNameToStore;
         $menu->user_id= auth()->user()->id;
         $menu->save();
@@ -124,8 +131,13 @@ class MenusController extends Controller
      */
     public function edit($id)
     {
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        $tags = Tag::where('user_id', '=', $user_id)->pluck( 'name','id');
+        $tags->prepend('None');
+
         $menu = Menu::find($id);
-        return view('menu.edit')->with('menu',$menu);
+        return view('menu.edit',['menu'=>$menu,'tags'=>$tags]);
     }
 
     /**
@@ -174,6 +186,7 @@ class MenusController extends Controller
             $menu->description = $request->input('description');
         }
         $menu->price = $request->input('price');
+        $menu->tag_id = $request->input('tag_id');
         $menu->save();
         
         return redirect('/dashboard')->with(['success'=>'menu Updated']);

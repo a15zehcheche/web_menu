@@ -37,3 +37,5 @@ Route::get('/setting', 'DashboardController@setting');
 Route::resource('food','FoodsController');
 Route::resource('user','UserController');
 Route::resource('menu','MenusController');
+Route::resource('tag','TagsController');
+

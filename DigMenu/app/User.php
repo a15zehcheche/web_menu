@@ -41,4 +41,8 @@ class User extends Authenticatable
     {
         return $this->HasMany('App\Menu');
     }
+    public function tag()
+    {
+        return $this->HasMany('App\Tag');
+    }
 }
