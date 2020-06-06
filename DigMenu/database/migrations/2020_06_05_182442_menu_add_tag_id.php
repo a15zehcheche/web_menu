@@ -14,7 +14,7 @@ class MenuAddTagId extends Migration
     public function up()
     {
         Schema::table('menus', function ( $table) {
-            $table->string('tag_id')->default('');
+            $table->string('tag_id')->default(0);
         });
     }
 

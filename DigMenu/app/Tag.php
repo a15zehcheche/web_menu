@@ -12,7 +12,7 @@ class Tag extends Model
 
     public function menus()
     {
-        return $this->HasMany('App\menus');
+        return $this->HasMany('App\Menu');
     }
     public function user()
     {

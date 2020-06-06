@@ -14,13 +14,14 @@ class Menu extends Model
     {
         return $this->belongsTo('App\User');
     }
+    public function tag()
+    {
+        return $this->belongsTo('App\Tag');
+    }
 
     public function images()
     {
         return $this->HasMany('App\MenuImage');
     }
-    public function tag()
-    {
-        return $this->belongsTo('App\Tag');
-    }
+    
 }

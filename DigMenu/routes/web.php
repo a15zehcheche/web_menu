@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 */
 Route::get('/','PagesController@index');
-Route::get('/carta/{user_name}','PagesController@menu');
+Route::get('/carta/{user_name}','PagesController@carta');
 Route::post('/search','PagesController@search');
 Route::get('/foodsearch','FoodsController@search');
 Route::get('/menu/add/{food_id}','MenusController@add');
@@ -30,7 +30,11 @@ Route::get('/profile','PagesController@profile');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/filter/{tag}','DashboardController@filter');
 Route::get('/setting', 'DashboardController@setting');
+
+Route::get('/menufilter/{user}/{tag}','PagesController@filter');
+
 
 
 

@@ -10,8 +10,4 @@ class MenuTag extends Model
     public $primaryKey = 'id';
     public $timestamps = true;
     
-    public function tag()
-    {
-        return $this->belongsTo('App\Tag');
-    }
 }

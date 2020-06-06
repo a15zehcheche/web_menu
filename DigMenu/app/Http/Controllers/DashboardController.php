@@ -30,13 +30,24 @@ class DashboardController extends Controller
         if($user_id){
             $menus = Menu::where('user_id', '=', $user_id)->orderBy('created_at','desc')->paginate(16);
             $tags = Tag::where('user_id', '=', $user_id)->orderBy('created_at','desc')->get();
-
         }
-        //return $menus->first()->images;
 
-        return view('dashboard',['menus'=>$menus,'tags'=>$tags]);
+      //  return $comment->tag->user;
+        $data =['menus'=>$menus,'tags'=>$tags];
+
+      
+        return view('dashboard',compact('menus','tags'));
     }
+    public function filter($tag_id){
+        $user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        $menus = Menu::where('user_id', '=', $user_id)->where('tag_id', $tag_id) ->orderBy('created_at','desc')->paginate(16);
+        $tags = Tag::where('user_id', '=', $user_id)->orderBy('created_at','desc')->get();
 
+       
+        $data =['menus'=>$menus,'tags'=>$tags];
+        return view('dashboard',compact('menus','tags'));
+    }
     public function setting()
     {
         $user_id = auth()->user()->id;

@@ -7,25 +7,30 @@
     @if (count($tags)>0)
         <div class="row">
             @foreach ($tags as $tag)
-                <div class="well col-md-3">
-                  
-                    <div class="card mb-4 shadow-sm">
-                        <div class="card-body p-3" style="background-color:{{$tag->color}}">
-                            <p class="card-text">{{$tag->name}}</p>   
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">{{$tag->created_at}}</small>
+                    <div class="well col-md-3">
+                    
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body p-3" style="background-color:{{$tag->color}}">
+                                <p class="card-text">{{$tag->name}}</p>   
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">{{$tag->created_at}}</small>
 
-                                <div class="btn-group">
-                                    {!! Form::open(['action' => ['TagsController@destroy',$tag->id],'method'=>'POST','class'=>'pull-right']) !!}
-                                        {{Form::hidden('_method','DELETE')}}
-                                        <a class="btn  btn-sm btn-outline-secondary " href="/tag/{{$tag->id}}/edit">Edit</a>
-                                        {{ Form::submit('Delete',['class'=>'btn btn-sm btn-outline-danger'])}}
-                                    {!! Form::close() !!} 
+                                    <div class="btn-group">
+                                        @if ($tag->id != 0)
+                                        {!! Form::open(['action' => ['TagsController@destroy',$tag->id],'method'=>'POST','class'=>'pull-right']) !!}
+                                            {{Form::hidden('_method','DELETE')}}
+                                            <a class="btn  btn-sm btn-outline-secondary " href="/tag/{{$tag->id}}/edit">Edit</a>
+                                            {{ Form::submit('Delete',['class'=>'btn btn-sm btn-outline-danger'])}}
+                                        {!! Form::close() !!}   
+                                        @else
+                                            <a class="btn  btn-sm btn-outline-secondary " href="/tag/{{$tag->id}}/edit">Edit</a>
+                                        @endif
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </diV>
+                    </diV>
             @endforeach
             {{$tags->links()}}
         </div>

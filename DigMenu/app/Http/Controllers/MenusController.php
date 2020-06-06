@@ -44,8 +44,8 @@ class MenusController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        $tags = Tag::where('user_id', '=', $user_id)->pluck( 'name','id');
-
+        $tags = Tag::where('user_id', $user_id)->pluck('name','id');
+        //$tags[0] = "None";
         return view('menu.create', compact('tags', $tags));
     }
 
@@ -133,9 +133,9 @@ class MenusController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        $tags = Tag::where('user_id', '=', $user_id)->pluck( 'name','id');
-        $tags->prepend('None');
-
+        $tags = Tag::where('user_id', $user_id)->pluck('name','id');
+        //$tags[0] = "None";
+        //return $tags;
         $menu = Menu::find($id);
         return view('menu.edit',['menu'=>$menu,'tags'=>$tags]);
     }
