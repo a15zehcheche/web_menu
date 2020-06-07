@@ -84,9 +84,13 @@
             </div>
         </main>
     </div>
-    <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+    <!--script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace( 'article-ckeditor' );
-    </script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script-->
 </body>
 </html>

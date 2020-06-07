@@ -70,6 +70,7 @@ class MenusController extends Controller
      */
     public function store(Request $request)
     {
+
         $regex = "/^[0-9]*(,|\.)[0-9][0-9]$/";
 
         $request->validate([
@@ -149,7 +150,6 @@ class MenusController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         //$regex = "/^[0-9]*(,|\.)?[0-9]*$/";
         $regex = "/^[0-9]*(,|\.)[0-9][0-9]$/";
 
@@ -185,8 +185,13 @@ class MenusController extends Controller
         }else{
             $menu->description = $request->input('description');
         }
-        $menu->price = $request->input('price');
+        if( isset($request['in_stock'])){
+            $menu->in_stock = 1;
+        }else{
+            $menu->in_stock = 0;
+        }
         $menu->tag_id = $request->input('tag_id');
+        $menu->price = $request->input('price');
         $menu->save();
         
         return redirect('/dashboard')->with(['success'=>'menu Updated']);

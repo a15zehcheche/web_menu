@@ -22,14 +22,22 @@ class TagsController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
-   public function index()
+   public function index(Request $request)
    {
-         $user_id = auth()->user()->id;
-         $user = User::find($user_id);
-         if($user_id){
-             $tags = Tag::where('user_id', '=', $user_id)->orderBy('created_at','desc')->paginate(16);
-         }
-         return view('tag.index')->with('tags',$tags);
+        if($request->ajax()){
+            $user_id = auth()->user()->id;
+            $user = User::find($user_id);
+        return Tag::where('user_id', '=', $user_id)->orderBy('created_at','desc')->get();
+            
+        }else{
+            $user_id = auth()->user()->id;
+            $user = User::find($user_id);
+            if($user_id){
+                $tags = Tag::where('user_id', '=', $user_id)->orderBy('created_at','desc')->paginate(16);
+            }
+            return view('tag.index')->with('tags',$tags);
+        }
+        
    }
     /**
      * Show the form for creating a new resource.

@@ -20,7 +20,10 @@ Route::get('/', function () {
 */
 Route::get('/','PagesController@index');
 Route::get('/carta/{user_name}','PagesController@carta');
+
 Route::post('/search','PagesController@search');
+Route::get('/getcarta','PagesController@getcarta');
+
 Route::get('/foodsearch','FoodsController@search');
 Route::get('/menu/add/{food_id}','MenusController@add');
 
@@ -42,4 +45,5 @@ Route::resource('food','FoodsController');
 Route::resource('user','UserController');
 Route::resource('menu','MenusController');
 Route::resource('tag','TagsController');
+
 

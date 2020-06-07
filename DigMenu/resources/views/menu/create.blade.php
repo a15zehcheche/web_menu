@@ -14,7 +14,7 @@
         </div>
         <div class="form-group">
             {{Form::label('description','Detail')}}
-            {{Form::textarea('description','',['id'=>'article-ckeditor','class'=>'form-control','placeholder'=>'Text'])}}
+            {{Form::textarea('description','',['id'=>'','class'=>'form-control','placeholder'=>'Text'])}}
         </div>
         <div class="form-group">
             {!! Form::Label('tag', 'Tag:') !!}
@@ -25,5 +25,5 @@
         </div>
         {{ Form::submit('Submit',['class'=>'btn btn-primary'])}}
     {!! Form::close() !!} 
-
+    
 @endsection

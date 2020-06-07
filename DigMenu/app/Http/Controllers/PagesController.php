@@ -14,6 +14,8 @@ class PagesController extends Controller
 
     } 
     public function search(Request $request){
+        
+
         $user_name =  $request->input('search');
         $user = User::where('name', '=', $user_name)->first();
         $menus =[];
@@ -43,7 +45,8 @@ class PagesController extends Controller
         $data =['menus'=>$menus,'tags'=>$tags];
         return view('filter',compact('menus','tags','user_name'));
     }
-    public function carta($user_name){
+    public function carta(Request $request,$user_name){
+       
         $user = User::where('name', '=', $user_name)->first();
         $menus =[];
         if($user){
@@ -57,9 +60,23 @@ class PagesController extends Controller
             'user_name'=> $user_name,
             'tags'=>$tags,
         ];
+        if($request->ajax()){
+            $menus = Menu::where('user_id', '=', $user->id)->orderBy('created_at','desc')->get();
+            foreach ($menus as $key => $menu){
+                $menus[$key]->tag = $menus[$key]->tag;
+            }
+            $data =[
+                'menus'=>$menus,
+                'tags'=>$tags,
+            ];
+            return $data;
+        }
         return view('menu',$data);
 
        
+    }
+    public function getcarta($user_name){
+        return "date";
     }
 
 

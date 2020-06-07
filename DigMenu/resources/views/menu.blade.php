@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-
+    <carta-guest/>
+    
     @if ($tags)
         <div class="text-center"><h1>La Carta de {{$store_name ?? ''}}<h1></div>
         

@@ -5,14 +5,9 @@
         <a class="btn btn-primary" href="/menu/create">Create</a>
         <a class="btn btn-warning" href="/tag">Tag</a>
     </div>
-    <div class="d-flex mb-3 h-100 flex-wrap" >
-        @foreach ($tags as $tag)
-            <a href="/filter/{{$tag->id}}"><div class="tag ml-2 mb-2 btn text-nowrap" style="background-color: {{$tag->color}}">{{$tag->name}}</div></a>
-        @endforeach
-        <a href="/dashboard "><div class="tag ml-2 mb-2 btn text-nowrap" style="background-color: #a5a5a5">All</div></a>
-
-    </div>
-    @if (count($menus)>0)
+    <carta></carta>
+<!-- 
+@if (count($menus)>0)
         <div class="row">
             @foreach ($menus as $menu)
                 <div class="well col-md-3">
@@ -47,4 +42,4 @@
     @else
         <p>No Menu found</p>
     @endif
-
+-->
