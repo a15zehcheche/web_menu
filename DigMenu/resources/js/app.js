@@ -16,6 +16,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import Swal from 'sweetalert2';
+
 import { Plugin } from 'vue-fragment'
 Vue.use(Plugin)
 import VueFilterDateFormat from 'vue-filter-date-format';
@@ -34,8 +36,10 @@ Vue.use(VueFilterDateFormat);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('test', require('./components/TestComponent.vue').default);
 Vue.component('carta', require('./components/user/MenuComponent.vue').default);
-Vue.component('carta-guest', require('./components/guest/MenuComponent.vue').default);
+Vue.component('order-index', require('./components/user/OrderComponent.vue').default);
 
+Vue.component('carta-guest', require('./components/guest/MenuComponent.vue').default);
+Vue.component('car-guest', require('./components/guest/CarComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

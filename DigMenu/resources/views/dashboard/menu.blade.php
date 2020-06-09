@@ -4,6 +4,7 @@
         <a class="btn btn-secondary" href="/food">Add</a>
         <a class="btn btn-primary" href="/menu/create">Create</a>
         <a class="btn btn-warning" href="/tag">Tag</a>
+        <a class="btn btn-info" href="/orders">Order</a>
     </div>
     <carta></carta>
 <!-- 

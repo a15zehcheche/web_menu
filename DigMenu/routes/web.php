@@ -33,12 +33,15 @@ Route::get('/profile','PagesController@profile');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
-Route::get('/filter/{tag}','DashboardController@filter');
+Route::get('/getData','DashboardController@getData');
 Route::get('/setting', 'DashboardController@setting');
+Route::get('/orders','PagesController@orders');
+
 
 Route::get('/menufilter/{user}/{tag}','PagesController@filter');
+Route::get('/filter/{tag}','DashboardController@filter');
 
-
+Route::get('/chat','PagesController@chat');
 
 
 Route::resource('food','FoodsController');

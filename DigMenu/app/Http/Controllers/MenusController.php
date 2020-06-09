@@ -45,7 +45,7 @@ class MenusController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         $tags = Tag::where('user_id', $user_id)->pluck('name','id');
-        //$tags[0] = "None";
+        $tags[0] = "None";
         return view('menu.create', compact('tags', $tags));
     }
 
@@ -71,7 +71,7 @@ class MenusController extends Controller
     public function store(Request $request)
     {
 
-        $regex = "/^[0-9]*(,|\.)[0-9][0-9]$/";
+        $regex = "/^[0-9]*(\.)[0-9][0-9]$/";
 
         $request->validate([
             'name' =>'required',
@@ -135,7 +135,7 @@ class MenusController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         $tags = Tag::where('user_id', $user_id)->pluck('name','id');
-        //$tags[0] = "None";
+        $tags[0] = "None";
         //return $tags;
         $menu = Menu::find($id);
         return view('menu.edit',['menu'=>$menu,'tags'=>$tags]);
@@ -151,7 +151,7 @@ class MenusController extends Controller
     public function update(Request $request, $id)
     {
         //$regex = "/^[0-9]*(,|\.)?[0-9]*$/";
-        $regex = "/^[0-9]*(,|\.)[0-9][0-9]$/";
+        $regex = "/^[0-9]*(\.)[0-9][0-9]$/";
 
         $request->validate([
             'name' =>'required',

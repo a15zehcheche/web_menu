@@ -17,3 +17,36 @@
     padding: 4px 8px;
     border-radius: 20px;
 }
+
+/* car*/
+.car_icon{
+    position: fixed;
+    bottom: 10%;
+    z-index: 1;
+    right: 0;
+    transform: translate(0%,50%);
+}
+
+
+.car_show{
+    position: fixed;
+    bottom: 10%;
+    z-index: 1;
+    right: 0px;
+    background: #f6993f;
+    transform: translate(0%, 0%);
+    width: 90%;
+    height: 80%;
+}
+.car_hidden{
+    position: fixed;
+    bottom: 10%;
+    z-index: 1;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: #f6993f;
+    transform: translate(0%,50%);
+}
+
+/*--------------------------*/

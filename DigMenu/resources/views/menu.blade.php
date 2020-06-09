@@ -1,7 +1,8 @@
 @extends('layouts.app')
-@section('content')
-    <carta-guest/>
-    
+@section('content') 
+
+<carta-guest user_name="{{$user_name}}"/> 
+    <!--
     @if ($tags)
         <div class="text-center"><h1>La Carta de {{$store_name ?? ''}}<h1></div>
         
@@ -41,5 +42,6 @@
     @else
         <p>No Menu found</p>
     @endif
+    -->
 @endsection
 

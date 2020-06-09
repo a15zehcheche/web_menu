@@ -30,23 +30,25 @@ class DashboardController extends Controller
         $menus = Menu::where('user_id', '=', $user_id)->orderBy('created_at','desc')->paginate(16);
         $tags = Tag::where('user_id', '=', $user_id)->orderBy('created_at','desc')->get();
         $data =['menus'=>$menus,'tags'=>$tags];    
-
+        return view('dashboard',compact('menus','tags'));
+        
+    }
+    public function getData(Request $request)
+    {
         if($request->ajax()){
+            $user_id = auth()->user()->id;
+            $user = User::find($user_id);
+            $tags = Tag::where('user_id', '=', $user_id)->orderBy('created_at','desc')->get();      
             $menus = Menu::where('user_id', '=', $user_id)->orderBy('created_at','desc')->get();
             foreach ($menus as $key => $menu){
                 $menus[$key]->tag = $menus[$key]->tag;
             }
-           
-            $data =array('menus'=>$menus,'tags'=>$tags);   
+            $data = array('menus'=>$menus,'tags'=>$tags);   
             return $data;
-        }else{
-            return view('dashboard',compact('menus','tags'));
         }
-
-        
-      
-         
+     
     }
+
     public function filter($tag_id){
         $user_id = auth()->user()->id;
         $user = User::find($user_id);

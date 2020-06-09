@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tag;
 use App\User;
+use App\Menu;   
 
 class TagsController extends Controller
 {
@@ -126,6 +127,11 @@ class TagsController extends Controller
      */
     public function destroy($id)
     {
+        $menus = Menu::where('tag_id',$id)->get();
+        foreach($menus as $menu){
+            $menu->tag_id = 0;
+            $menu->save();
+        }
         $tag = Tag::find($id);
         $tag->delete();
         return redirect('/tag')->with('success','Tag Removed');

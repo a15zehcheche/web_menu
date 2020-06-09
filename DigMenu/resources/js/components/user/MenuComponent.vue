@@ -55,7 +55,7 @@ export default {
     };
   },
   created() {
-    axios.get("/dashboard").then(res => {
+    axios.get("/getData").then(res => {
       this.tags = res.data.tags;
       this.platsCopy = this.plats = res.data.menus;
       console.log(res.data)

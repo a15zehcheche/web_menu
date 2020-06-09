@@ -51,6 +51,8 @@ class PagesController extends Controller
         $menus =[];
         if($user){
             $menus = Menu::where('user_id', '=', $user->id)->orderBy('created_at','desc')->paginate(16);
+        }else{
+            return view('index')->with('error','user not found!');;
         }
       
         $tags = Tag::where('user_id', '=',$user->id)->orderBy('created_at','desc')->get();
@@ -83,4 +85,15 @@ class PagesController extends Controller
     public function profile(){
         return view('pages.profile');
     } 
+    
+    public function orders()
+    {
+        //return view('chat');
+        $user_name = auth()->user()->name;
+        return view('dashboard.order')->with('user_name',$user_name);
+    }
+    public function chat()
+    {
+        return view('chat');
+    }
 }
