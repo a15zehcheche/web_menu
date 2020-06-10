@@ -1,6 +1,6 @@
 <template>
   <fragment>
-    <car-guest  @remove="remove"  :car="this.car" ref="car" :user_name="this.user_name"/>
+    <car-guest  @remove="remove"  :car="this.car" ref="car" :user_name="this.user_name" :user_id="this.user_id"/>
     <div class="d-flex mb-3 h-100 flex-wrap">
       <a v-for="tag in tags" :key="tag.id" @click="plats_filter(tag.id)">
         <div
@@ -45,6 +45,9 @@ const Swal = require('sweetalert2')
 export default {
   props: {
   	user_name: {
+      type: String,
+    },
+    	user_id: {
       type: String,
   	},
   },

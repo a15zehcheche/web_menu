@@ -1,0 +1,39 @@
+[Thu 11 Jun 2020 - 00:04 AM]: test error
+[Thu 11 Jun 2020 - 00:04 AM]: test error
+[Thu 11 Jun 2020 - 00:06 AM]: init
+[Thu 11 Jun 2020 - 00:06 AM]: init
+[Thu 11 Jun 2020 - 00:08 AM]: init
+[Thu 11 Jun 2020 - 00:12 AM]: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'client_name' cannot be null (SQL: insert into `order` (`client_name`, `user_id`, `updated_at`, `created_at`) values (?, ?, 2020-06-11 00:12:46, 2020-06-11 00:12:46))
+[Thu 11 Jun 2020 - 00:12 AM]: fin
+[Thu 11 Jun 2020 - 00:13 AM]: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'user_id' cannot be null (SQL: insert into `order` (`client_name`, `user_id`, `updated_at`, `created_at`) values (asdasd, ?, 2020-06-11 00:13:13, 2020-06-11 00:13:13))
+[Thu 11 Jun 2020 - 00:13 AM]: fin
+[Thu 11 Jun 2020 - 00:13 AM]: SQLSTATE[HY000]: General error: 1364 Field 'plats' doesn't have a default value (SQL: insert into `order` (`client_name`, `user_id`, `updated_at`, `created_at`) values (asdasd, 12, 2020-06-11 00:13:39, 2020-06-11 00:13:39))
+[Thu 11 Jun 2020 - 00:13 AM]: fin
+[Thu 11 Jun 2020 - 00:13 AM]: SQLSTATE[HY000]: General error: 1364 Field 'plats' doesn't have a default value (SQL: insert into `order` (`client_name`, `user_id`, `updated_at`, `created_at`) values (asdasd, 12, 2020-06-11 00:13:50, 2020-06-11 00:13:50))
+[Thu 11 Jun 2020 - 00:13 AM]: fin
+[Thu 11 Jun 2020 - 00:14 AM]: SQLSTATE[HY000]: General error: 1364 Field 'plats' doesn't have a default value (SQL: insert into `order` (`client_name`, `user_id`, `updated_at`, `created_at`) values (asd, 12, 2020-06-11 00:14:25, 2020-06-11 00:14:25))
+[Thu 11 Jun 2020 - 00:14 AM]: fin
+[Thu 11 Jun 2020 - 00:14 AM]: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'plats' cannot be null (SQL: insert into `order` (`client_name`, `plats`, `user_id`, `updated_at`, `created_at`) values (asd, ?, 12, 2020-06-11 00:14:47, 2020-06-11 00:14:47))
+[Thu 11 Jun 2020 - 00:14 AM]: fin
+[Thu 11 Jun 2020 - 00:15 AM]: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'plats' cannot be null (SQL: insert into `order` (`client_name`, `plats`, `user_id`, `updated_at`, `created_at`) values (aad, ?, 12, 2020-06-11 00:15:01, 2020-06-11 00:15:01))
+[Thu 11 Jun 2020 - 00:15 AM]: fin
+[Thu 11 Jun 2020 - 00:15 AM]: SQLSTATE[22032]: <<Unknown error>>: 3140 Invalid JSON text: "Invalid value." at position 0 in value for column 'order.plats'. (SQL: insert into `order` (`client_name`, `plats`, `user_id`, `updated_at`, `created_at`) values (asd, asdasd, 12, 2020-06-11 00:15:36, 2020-06-11 00:15:36))
+[Thu 11 Jun 2020 - 00:15 AM]: fin
+[Thu 11 Jun 2020 - 00:15 AM]: fin
+[Thu 11 Jun 2020 - 00:16 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:17 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:18 AM]: 1
+[Thu 11 Jun 2020 - 00:18 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:20 AM]: 1
+[Thu 11 Jun 2020 - 00:20 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:21 AM]: 1
+[Thu 11 Jun 2020 - 00:21 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:21 AM]: 1
+[Thu 11 Jun 2020 - 00:21 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:21 AM]: 1
+[Thu 11 Jun 2020 - 00:21 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:21 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:22 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:23 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:23 AM]: Array to string conversion
+[Thu 11 Jun 2020 - 00:23 AM]: Array to string conversion

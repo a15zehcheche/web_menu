@@ -38,15 +38,16 @@ Route::get('/setting', 'DashboardController@setting');
 Route::get('/orders','PagesController@orders');
 
 
-Route::get('/menufilter/{user}/{tag}','PagesController@filter');
 Route::get('/filter/{tag}','DashboardController@filter');
-
+//Route::post('/order','PagesController@order');
 Route::get('/chat','PagesController@chat');
-
+Route::get('/getOrder','DashboardController@getOrder');
 
 Route::resource('food','FoodsController');
 Route::resource('user','UserController');
 Route::resource('menu','MenusController');
 Route::resource('tag','TagsController');
+Route::resource('order','OrderController');
+
 
 

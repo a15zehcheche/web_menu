@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Menu;
 use App\User;
 use App\Tag;
+use App\Order;
 class DashboardController extends Controller
 {
     /**
@@ -65,5 +66,12 @@ class DashboardController extends Controller
         $user = User::find($user_id);
     
         return view('dashboard.setting')->with('user',$user );
+    }
+    public function getOrder()
+    {
+        $user_id = auth()->user()->id;
+        $order = Order::where('user_id', $user_id)->orderBy('created_at','desc')->get();
+
+        return $order;
     }
 }

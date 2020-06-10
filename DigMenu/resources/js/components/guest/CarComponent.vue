@@ -24,6 +24,8 @@
             </button>
           </div>
           <div class="modal-body h-75">
+            <label for="name">your name:</label>
+            <input type="text" v-model="client_name" />
             <div class="orders-list d-block ml-1 mr-1 rounded">
               <div
                 v-for="(plat,index) in car"
@@ -32,7 +34,7 @@
               >
                 <div class="row h-100">
                   <div class="col-4 d-flex justify-content-center align-items-center">
-                    <img class="w-100"  :src="'/storage/images/' + plat.plat.imgLink" alt="plat" />
+                    <img class="w-100" :src="'/storage/images/' + plat.plat.imgLink" alt="plat" />
                   </div>
                   <div class="col-8">
                     <div class="row h-50">
@@ -75,6 +77,9 @@ export default {
     user_name: {
       type: String
     },
+    user_id: {
+      type: String
+    },
     car: {
       type: Array
     }
@@ -84,18 +89,16 @@ export default {
   },
   data() {
     return {
-
       isActive: false,
       cars: [1, 2, 3, 4, 5, 6],
       price_total: 0,
+      client_name: ""
     };
   },
-  created() {
-   
-  },
+  created() {},
   methods: {
     update(data) {
-        this.price_total = data;
+      this.price_total = data;
     },
     getDate(datetime) {
       let date = new Date(datetime)
@@ -108,20 +111,37 @@ export default {
       this.$emit("remove", id);
       //this.car = this.car.filter(car => car.plat.id != id);
     },
-    plats_filter(id) {
-      this.plats = this.platsCopy.filter(plat => plat.tag_id == id);
-    },
-    all_plats() {
-      this.plats = this.platsCopy;
-    },
-    car_show() {
-      this.isActive = !this.isActive;
-    },
-    order(){
-        var socket = io("http://192.168.1.140:3000");
-        let elemet = this;
-        console.log("msg: " +'order'+this.user_name )
-        socket.emit('order'+this.user_name, JSON.stringify(elemet.car) );
+
+    order() {
+      var socket = io("http://192.168.1.140:3000");
+
+      console.log({
+        plats: this.car.map(plat => {
+          return { id: plat.plat, number: plat.value };
+        })
+      });
+      let elemet = this;
+      if (this.client_name != "" && this.car.length > 0) {
+        axios
+          .post("/order", {
+            user_id: elemet.user_id,
+            client_name: elemet.client_name,
+            json_plats: elemet.car.map(plat => {
+              return { plat: plat.plat, number: plat.value };
+            })
+          })
+          .then(function(response) {
+            console.log(response);
+            socket.emit("order" + elemet.user_name,response.data);
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+
+        // alert("order.")
+      } else {
+        alert("reqire name! or car empty");
+      }
     }
   }
 };
@@ -135,6 +155,5 @@ export default {
   height: 100%;
   overflow: hidden;
   overflow-y: scroll;
-  
 }
 </style>
